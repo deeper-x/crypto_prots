@@ -61,12 +61,21 @@ def run(key_dict: dict[str, str], message: str) -> str:
 
     return res
 
-def break_it(enc_str: str) -> list:
+def break_it(enc_str: str) -> list[str]:
+    """given an input ciphere message, it returns all possible decrypted messages
+
+    Args:
+        enc_str (str): encrypted message
+
+    Returns:
+        list: list of all possible solutions, for the given space
+    """
+
     res = []
     for i in range(1, 26):
-        key_dict_enc_break: dict[str, str] = gen_enc_key(i)
-        key_dict_break: dict[str, str] = gen_dec_key(key_dict_enc_break)
-        dec_break: str = run(key_dict_break, enc_str)
+        key_enc_break: dict[str, str] = gen_enc_key(i)
+        key_dec_break: dict[str, str] = gen_dec_key(key_enc_break)
+        dec_break: str = run(key_dec_break, enc_str)
         res.append(dec_break)
     
     return res
