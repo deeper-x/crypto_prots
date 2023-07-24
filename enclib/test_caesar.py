@@ -1,10 +1,10 @@
 import unittest
-from enclib.caesar import gen_enc_key, gen_dec_key, encrypt
+from enclib import caesar
 
 
 class TestCaesar(unittest.TestCase):
     def test_gen_enc_dec(self):
-        got = gen_enc_key(1)
+        got = caesar.gen_enc_key(1)
         expected = {
                     'A': 'B', 'B': 'C', 'C': 'D', 'D': 'E', 'E': 'F', 'F': 'G',
                     'G': 'H', 'H': 'I', 'I': 'J', 'J': 'K', 'K': 'L', 'L': 'M',
@@ -31,7 +31,7 @@ class TestCaesar(unittest.TestCase):
                     'w': 'x', 'x': 'y', 'y': 'z', 'z': 'A'
                     }
 
-        got = gen_dec_key(enc_key)
+        got = caesar.gen_dec_key(enc_key)
 
         expected = {'B': 'A', 'C': 'B', 'D': 'C', 'E': 'D', 'F': 'E', 'G': 'F',
                     'H': 'G', 'I': 'H', 'J': 'I', 'K': 'J', 'L': 'K', 'M': 'L',
@@ -59,7 +59,7 @@ class TestCaesar(unittest.TestCase):
                     'w': 'x', 'x': 'y', 'y': 'z', 'z': 'A'
                     }
 
-        got = encrypt(enc_key, "hello, test")
+        got = caesar.run(enc_key, "hello, test")
         expected = "ifmmp, uftu"
 
         self.assertEqual(got, expected)
