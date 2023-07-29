@@ -63,3 +63,17 @@ if __name__ == "__main__":
 
     decrypted: str = run(dec_key, encrypted)
     print(decrypted)
+    """OUTPUT:
+
+    {'A': 'T', 'B': 'Z', 'C': 'X', 'D': 'G', 'E': 'J', 'F': 'C', 'G': 'W',
+    'H': 'O', 'I': 'H', 'J': 'N', 'K': 'E', 'L': 'L', 'M': 'U', 'N': 'B',
+    'O': 'Y', 'P': 'I', 'Q': 'R', 'R': 'S', 'S': 'Q', 'T': 'F', 'U': 'A',
+    'V': 'K', 'W': 'M', 'X': 'V', 'Y': 'P', 'Z': 'D'}
+    {'T': 'A', 'Z': 'B', 'X': 'C', 'G': 'D', 'J': 'E', 'C': 'F', 'W': 'G',
+    'O': 'H', 'H': 'I', 'N': 'J', 'E': 'K', 'L': 'L', 'U': 'M', 'B': 'N',
+    'Y': 'O', 'I': 'P', 'R': 'Q', 'S': 'R', 'Q': 'S', 'F': 'T', 'A': 'U',
+    'K': 'V', 'M': 'W', 'V': 'X', 'P': 'Y', 'D': 'Z'}
+
+    OJLLY, MYSLG!
+    HELLO, WORLD!
+    """
