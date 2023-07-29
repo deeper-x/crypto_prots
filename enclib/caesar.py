@@ -42,11 +42,14 @@ def gen_dec_key(enc_key: dict[str, str]) -> dict[str, str]:
 
 
 def run(key_dict: dict[str, str], message: str) -> str:
-    """given the encryption key and a clean message, returns its ciphered version. Given a decription key and a ciphered message, returns the decrypted message
-    
+    """given the encryption key and a clean message, returns its ciphered
+    version. Given a decription key and a ciphered message, returns the
+    decrypted message
+
     Args:
         key_dict (dict[str, str]): encryption dict | decryption dict
-        message (str): clean message if used for encryption, enc message if used for decryption
+        message (str): clean message if used for encryption, enc message if
+        used for decryption
 
     Returns:
         str: ciphered message for decryption, clean message for decryption
@@ -61,8 +64,10 @@ def run(key_dict: dict[str, str], message: str) -> str:
 
     return res
 
+
 def break_it(enc_str: str) -> list[str]:
-    """given an input ciphere message, it returns all possible decrypted messages
+    """given an input ciphere message, it returns all possible
+    decrypted messages
 
     Args:
         enc_str (str): encrypted message
@@ -77,5 +82,5 @@ def break_it(enc_str: str) -> list[str]:
         key_dec_break: dict[str, str] = gen_dec_key(key_enc_break)
         dec_break: str = run(key_dec_break, enc_str)
         res.append(dec_break)
-    
+
     return res
