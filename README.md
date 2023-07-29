@@ -1,4 +1,4 @@
-`sh
+```sh
 source bin/activate
 python -m pip install -r requirements.txt
 
@@ -7,4 +7,4 @@ python main.py
 
 # TEST
 python -m unittest
-`
+```
