@@ -4,13 +4,13 @@ from typing import Dict
 
 def run(msg: str) -> Dict[str, float]:
     """Given an encrypted ciphered message, it computes frequency analisys,
-    returning detailed report (letter=%frequency)
+    returning dict dict with report (letter:frequency)
 
     Args:
         msg (str): ciphered msg
 
     Returns:
-        str: frequency analisys
+        Dict[str, float]: frequency analisys dictionary, w/ letter:frequency
     """
 
     alphab: str = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
