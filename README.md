@@ -6,5 +6,5 @@ python -m pip install -r requirements.txt
 python main.py
 
 # TEST
-python -m unittest
+python -m unittest -v
 ```
