@@ -1,7 +1,7 @@
 import random
 
 
-def gen_key_stream(size: int) -> bytes:
+def get_key_stream(size: int) -> bytes:
     """generate a key stream of a given size
 
     Args:
