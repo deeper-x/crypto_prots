@@ -79,14 +79,3 @@ def decrypt(cipher: bytes, key_stream: bytes) -> bytes:
     except Exception as err:
         print("Error: {err}".format(err=err))
         return res
-
-
-if __name__ == "__main__":
-    en_msg: bytes = "alberto ok".encode()
-
-    ks: bytes = gen_key_stream(len(en_msg))
-    cipher: bytes = encrypt(ks, en_msg)
-    clean: bytes = decrypt(cipher, ks)
-
-    print(cipher)
-    print(clean, en_msg)
