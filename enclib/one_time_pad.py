@@ -16,6 +16,21 @@ def gen_key_stream(size: int) -> bytes:
     return res
 
 
+def get_xor(one: bytes, two: bytes) -> bytes:
+    """given two input bytes lists, it performs xor over them
+
+    Args:
+        one (bytes): bytes list one
+        two (bytes): bytes list two
+
+    Returns:
+        bytes: XOR bytes list
+    """
+    mlen: int = min(len(one), len(two))
+
+    return bytes([one[i] ^ two[i] for i in range(mlen)])
+
+
 def encrypt(key_stream: bytes, en_msg: bytes) -> bytes:
     """given an encoded message, it encrypts based on input key stream
 
@@ -43,7 +58,7 @@ def encrypt(key_stream: bytes, en_msg: bytes) -> bytes:
 
             raise Exception(err_msg)
 
-        res = bytes([key_stream[i] ^ en_msg[i] for i in range(lmsg)])
+        res = get_xor(key_stream, en_msg)
 
         return res
 
@@ -72,9 +87,10 @@ def decrypt(cipher: bytes, key_stream: bytes) -> bytes:
                 lks=lks,
                 lmsg=lmsg,
             )
+
             raise Exception(err_msg)
 
-        return encrypt(cipher, key_stream)
+        return get_xor(cipher, key_stream)
 
     except Exception as err:
         print("Error: {err}".format(err=err))
