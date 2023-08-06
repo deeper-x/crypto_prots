@@ -16,7 +16,7 @@ def gen_key_stream(size: int) -> bytes:
     return res
 
 
-def get_xor(one: bytes, two: bytes) -> bytes:
+def xor(one: bytes, two: bytes) -> bytes:
     """given two input bytes lists, it performs xor over them
 
     Args:
@@ -58,7 +58,7 @@ def encrypt(key_stream: bytes, en_msg: bytes) -> bytes:
 
             raise Exception(err_msg)
 
-        res = get_xor(key_stream, en_msg)
+        res = xor(key_stream, en_msg)
 
         return res
 
@@ -90,7 +90,7 @@ def decrypt(cipher: bytes, key_stream: bytes) -> bytes:
 
             raise Exception(err_msg)
 
-        return get_xor(cipher, key_stream)
+        return xor(cipher, key_stream)
 
     except Exception as err:
         print("Error: {err}".format(err=err))
