@@ -3,5 +3,6 @@ mccabe==0.7.0
 mypy==1.4.1
 mypy-extensions==1.0.0
 pycodestyle==2.10.0
+pyDes==2.0.1
 pyflakes==3.0.1
 typing_extensions==4.7.1
