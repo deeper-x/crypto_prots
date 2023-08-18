@@ -42,8 +42,3 @@ class Sequence():
             res = True
 
         return res
-
-
-if __name__ == "__main__":
-    c: Sequence = Sequence(7, 3)
-    print(c.get())
