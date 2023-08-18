@@ -2,12 +2,25 @@ from typing import Optional
 
 
 class Sequence():
-    def __init__(self, p: int, g: int) -> None:
+    def __init__(self, p: int) -> None:
         self.__p: int = p
-        self.__g: int = g
-        self.__res: list[int] = []
-        for i in range(self.__p-1):
-            self.__res.append(self.__g**i % self.__p)
+        self.__g: Optional[int]
+
+        # searching for generator g, which is < p, if any
+        for g in range(self.__p):
+            self.__g = g
+            self.__res: list[int] = []
+
+            for i in range(self.__p-1):
+                self.__res.append(g**i % self.__p)
+
+            # as soon as you find it, exit
+            if self.is_valid():
+                break
+
+    @property
+    def g(self) -> Optional[int]:
+        return self.__g
 
     def get(self) -> Optional[list[int]]:
         """generate a sequence starting from g, modulus p

@@ -1,5 +1,5 @@
 from typing import Optional
-
+from enclib import generator
 import random
 
 
@@ -43,7 +43,7 @@ def get_random_prime(in_random: int) -> Optional[int]:
     return None
 
 
-def get_generator(in_prime: int) -> int:
-    res: int
-    
-    return res
+def get_generator(p: int) -> Optional[int]:
+    seq: generator.Sequence = generator.Sequence(p)
+
+    return seq.g
