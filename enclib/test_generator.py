@@ -5,7 +5,22 @@ from enclib import generator
 
 
 class TestGenerator(unittest.TestCase):
-    def test_get_valid(self) -> None:
+    def test_valid(self) -> None:
+        cg: generator.Sequence = generator.Sequence(7, 3)
+        # result is [1, 3, 2, 6, 4, 5]
+        expected: bool = True
+        got: bool = cg.is_valid()
+
+        self.assertEqual(expected, got)
+
+    def test_non_valid(self) -> None:
+        cg: generator.Sequence = generator.Sequence(129, 2)
+        expected: bool = False
+        got: bool = cg.is_valid()
+
+        self.assertEqual(expected, got)
+
+    def test_get(self) -> None:
         cg: generator.Sequence = generator.Sequence(7, 3)
         expected: list[int] = [1, 3, 2, 6, 4, 5]
         got: Optional[list[int]] = cg.get()

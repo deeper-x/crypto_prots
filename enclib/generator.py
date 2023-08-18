@@ -16,12 +16,12 @@ class Sequence():
             list[int]: generator sequence
         """
 
-        if self.__is_valid():
+        if self.is_valid():
             return self.__res
 
         return None
 
-    def __is_valid(self) -> bool:
+    def is_valid(self) -> bool:
         """given an input sequence, checks if it's a valid generator's result.
 
         Returns:
