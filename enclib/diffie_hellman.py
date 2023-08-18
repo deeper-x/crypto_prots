@@ -44,6 +44,15 @@ def get_random_prime(in_random: int) -> Optional[int]:
 
 
 def get_generator(p: int) -> Optional[int]:
+    """found the generator value, for a given integer p
+
+    Args:
+        p (int): integer you want to find the generator value
+
+    Returns:
+        Optional[int]: generator value, if any
+    """
+
     seq: generator.Sequence = generator.Sequence(p)
 
     return seq.g
