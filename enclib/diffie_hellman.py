@@ -34,7 +34,7 @@ def get_random_prime(start: int, stop: int) -> Optional[int]:
         Optional[int]: prime number. None if not founded
     """
 
-    cur: int = random.randrange(start, stop)
+    cur: int = gen_random_value(start, stop)
 
     if is_prime(cur):
         return cur
@@ -45,6 +45,15 @@ def get_random_prime(start: int, stop: int) -> Optional[int]:
 
 
 def gen_random_value(start: int, stop: int) -> int:
+    """generate a random value in a given range
+
+    Args:
+        start (int): start range
+        stop (int): stop range
+
+    Returns:
+        int: random number
+    """
     res: int = random.randrange(start, stop)
 
     return res
