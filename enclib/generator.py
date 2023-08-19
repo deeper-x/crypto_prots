@@ -7,7 +7,7 @@ class Sequence():
         self.__g: Optional[int]
 
         # searching for generator g, which is < p, if any
-        for g in range(self.__p):
+        for g in range(2, self.__p):
             self.__g = g
             self.__res: list[int] = []
 
