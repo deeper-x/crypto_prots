@@ -1,12 +1,12 @@
 import unittest
-from enclib.settings import START_RANGE, STOP_RANGE
+from enclib import settings
 from enclib import diffie_hellman
 from typing import cast
 
 
 class TestDiffieHellman(unittest.TestCase):
     def test_private_keys(self) -> None:
-        p = diffie_hellman.get_random_prime(START_RANGE, STOP_RANGE)
+        p = diffie_hellman.get_random_prime(settings.START_RANGE, settings.STOP_RANGE)
         self.assertIsNotNone(p)
         p_int: int = cast(int, p)
 
@@ -16,10 +16,10 @@ class TestDiffieHellman(unittest.TestCase):
 
         # PUBLIC KEYS
         # alice
-        a_token: int = diffie_hellman.gen_random_value(START_RANGE, STOP_RANGE)
+        a_token: int = diffie_hellman.gen_random_value(settings.START_RANGE, settings.STOP_RANGE)
         a_pub: int = diffie_hellman.gen_pub_key(a_token, p_int, g_int)
         # bob
-        b_token: int = diffie_hellman.gen_random_value(START_RANGE, STOP_RANGE)
+        b_token: int = diffie_hellman.gen_random_value(settings.START_RANGE, settings.STOP_RANGE)
         b_pub: int = diffie_hellman.gen_pub_key(b_token, p_int, g_int)
 
         # PRIVATE KEYS
